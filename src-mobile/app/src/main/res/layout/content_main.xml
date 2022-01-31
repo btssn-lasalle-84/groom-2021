@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#809CB6"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <TextView
+        android:id="@+id/titreConnexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Portier :"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/guidelineHeader"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <Spinner
+        android:id="@+id/listeAppareilsBluetooth"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.45"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintRight_toLeftOf="@id/boutonConnexion"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@id/guidelineHeader" />
+
+    <Button
+        android:id="@+id/boutonConnexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="Connecter"
+        app:backgroundTint="#009688"
+        app:layout_constraintTop_toBottomOf="@id/guidelineHeader"
+        app:layout_constraintLeft_toRightOf="@id/listeAppareilsBluetooth"
+        app:layout_constraintRight_toLeftOf="@id/etatConnexion" />
+
+    <RadioButton
+        android:id="@+id/etatConnexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:buttonTint="@color/rouge"
+        android:checked="true"
+        android:enabled="false"
+        android:text="Déconnecté"
+        app:layout_constraintTop_toBottomOf="@id/guidelineHeader"
+        app:layout_constraintLeft_toRightOf="@id/boutonConnexion" />
+
+    <TextView
+        android:id="@+id/titrePresence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Détection de présence :"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@id/boutonConnexion" />
+
+    <Button
+        android:id="@+id/boutonPresence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="#009688"
+        android:text="activer"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/boutonRadioEtatPresence"
+        app:layout_constraintLeft_toRightOf="@id/guidelineLeft"/>
+
+    <RadioButton
+        android:id="@+id/boutonRadioActivationPresence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:buttonTint="@color/rouge"
+        android:checked="true"
+        android:enabled="false"
+        android:text="Désactivé"
+        app:layout_constraintLeft_toRightOf="@id/boutonPresence"
+        app:layout_constraintTop_toBottomOf="@id/boutonRadioEtatPresence"
+        android:layout_marginTop="16dp"
+        />
+
+    <RadioButton
+        android:id="@+id/boutonRadioEtatPresence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/rouge"
+        android:checked="true"
+        android:enabled="false"
+        android:textSize="18sp"
+        android:text="Il n'y a personne à l'entrée"
+        app:layout_constraintLeft_toLeftOf="@id/titrePresence"
+        app:layout_constraintTop_toBottomOf="@id/titrePresence"
+        android:layout_marginTop="16dp"
+        />
+
+    <TextView
+        android:id="@+id/texteNomOccupant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Votre carte de visite :"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/boutonPresence" />
+
+    <EditText
+        android:id="@+id/texteNomFonction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.45"
+        app:layout_constrainedWidth="true"
+        android:ems="10"
+        android:hint="Nom Prénom Fonction"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@id/texteNomOccupant" />
+
+    <Button
+        android:id="@+id/boutonEnvoieOccupant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="Envoyer"
+        android:enabled="false"
+        app:backgroundTint="#009688"
+        app:layout_constraintLeft_toRightOf="@+id/texteNomFonction"
+        app:layout_constraintTop_toBottomOf="@+id/texteNomOccupant" />
+
+    <Button
+        android:id="@+id/boutonAjoutOccupant"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="+"
+        app:backgroundTint="#009688"
+        app:layout_constraintLeft_toRightOf="@+id/boutonEnvoieOccupant"
+        app:layout_constraintTop_toBottomOf="@+id/texteNomOccupant" />
+
+    <TextView
+        android:id="@+id/titreMessageOccupant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Votre message :"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/boutonAjoutOccupant" />
+
+    <EditText
+        android:id="@+id/texteMessageOccupant"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.45"
+        app:layout_constrainedWidth="true"
+        android:ems="10"
+        android:hint="message personnalisé"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/titreMessageOccupant" />
+
+    <Button
+        android:id="@+id/envoyerMessageOccupant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:background="#FFFFFF"
+        android:enabled="false"
+        android:text="Envoyer"
+        app:backgroundTint="#009688"
+        app:layout_constraintLeft_toRightOf="@+id/texteMessageOccupant"
+        app:layout_constraintTop_toBottomOf="@+id/titreMessageOccupant" />
+
+    <TextView
+        android:id="@+id/titreEtat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Votre choix :"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/texteMessageOccupant" />
+
+    <RadioGroup
+        android:id="@+id/groupeBoutonRadio"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/titreEtat">
+
+        <RadioButton
+            android:id="@+id/boutonRadioLibre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:buttonTint="@color/vert"
+            android:checked="false"
+            android:textSize="22dp"
+            android:textColor="@color/vert"
+            android:text="Libre" />
+
+        <RadioButton
+            android:id="@+id/boutonRadioOccupe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/orange"
+            android:checked="false"
+            android:textSize="22dp"
+            android:textColor="@color/orange"
+            android:text="Occupé" />
+
+        <RadioButton
+            android:id="@+id/boutonRadioAbsent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/rouge"
+            android:checked="false"
+            android:textSize="22dp"
+            android:textColor="@color/rouge"
+            android:text="Absent" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Votre action :"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@+id/boutonEntrer"
+        app:layout_constraintTop_toBottomOf="@+id/envoyerMessageOccupant" />
+
+    <Button
+        android:id="@+id/boutonEntrer"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="Entrer"
+        android:enabled="false"
+        app:backgroundTint="#065795"
+        app:layout_constraintStart_toStartOf="@+id/envoyerMessageOccupant"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/boutonSonnette"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="Activer Sonnette"
+        android:enabled="false"
+        app:backgroundTint="#DCC00C"
+        app:layout_constraintStart_toStartOf="@+id/envoyerMessageOccupant"
+        app:layout_constraintTop_toBottomOf="@+id/boutonEntrer" />
+
+    <WebView
+        android:id="@+id/calendrierGroom"
+        android:layout_width="match_parent"
+        android:layout_height="505dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/boutonAjoutUrl"/>
+
+    <TextView
+        android:id="@+id/titreCalendrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Calendrier : "
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@id/groupeBoutonRadio" />
+
+    <Button
+        android:id="@+id/boutonAjoutUrl"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="+"
+        app:backgroundTint="#009688"
+        app:layout_constraintLeft_toRightOf="@+id/titreCalendrier"
+        app:layout_constraintTop_toBottomOf="@id/groupeBoutonRadio"
+        android:layout_marginLeft="10dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
